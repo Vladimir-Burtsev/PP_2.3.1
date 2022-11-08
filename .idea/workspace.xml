@@ -21,7 +21,6 @@
       <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/burtsev/config/AppInit.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/burtsev/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/burtsev/controller/FirstController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/burtsev/controller/StartetPageController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/burtsev/controller/UsersController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/burtsev/dao/UsersDAO.java" afterDir="false" />
@@ -30,9 +29,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/com/burtsev/service/UserService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/burtsev/service/UserServiceImpl.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/first/exit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/first/goodbye.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/first/hello.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/edit.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/new.html" afterDir="false" />
@@ -217,7 +213,7 @@
       <workItem from="1667737161763" duration="25603000" />
       <workItem from="1667832375050" duration="8352000" />
       <workItem from="1667921945629" duration="8544000" />
-      <workItem from="1667940586238" duration="1122000" />
+      <workItem from="1667940586238" duration="1706000" />
     </task>
     <servers />
   </component>

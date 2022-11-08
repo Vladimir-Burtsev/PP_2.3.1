@@ -1,2 +1,7 @@
-.idea/
-target/
+# Folders
+.idea
+target
+log
+
+# Files
+*.iml
