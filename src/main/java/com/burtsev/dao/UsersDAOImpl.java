@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
@@ -15,11 +16,10 @@ public class UsersDAOImpl implements UsersDAO {
 //    public UsersDAOImpl(SessionFactory sessionFactory) {
 //        this.sessionFactory = sessionFactory;
 //    }
-    private final EntityManager entityManager;
+    @PersistenceContext
+    private EntityManager entityManager;
 
-    @Autowired
-    public UsersDAOImpl(EntityManager entityManager) {
-        this.entityManager = entityManager;
+    public UsersDAOImpl() {
     }
 
     @Override

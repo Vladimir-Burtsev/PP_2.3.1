@@ -6,22 +6,6 @@
     <title>All Users</title>
 </head>
 <body>
-<!--<table border="5", align="center">-->
-<!--  <tr>-->
-<!--    <th>Id</th>-->
-<!--    <th>firstName</th>-->
-<!--    <th>lastName</th>-->
-<!--    <th>age</th>-->
-<!--    <th>country</th>-->
-<!--  </tr>-->
-<!--  <tr th:each="user : ${users}">-->
-<!--    <td th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getId()}">Id</td>-->
-<!--    <td th:utext="${user.getFirstName()}">firstName</td>-->
-<!--    <td th:utext="${user.getLastName()}">lastName</td>-->
-<!--    <td th:utext="${user.getAge()}">age</td>-->
-<!--    <td th:utext="${user.getCountry()}">country</td>-->
-<!--  </tr>-->
-<!--</table>-->
 <div th:each="user : ${users}">
   <a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getFirstName()}">user</a>
 </div>

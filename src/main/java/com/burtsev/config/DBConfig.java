@@ -21,13 +21,14 @@ import java.util.Properties;
 @PropertySource("classpath:db.properties")
 public class DBConfig {
 
+
     @Bean
     public DataSource getDataSource(Environment env) {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getProperty("db.driver"));
-        dataSource.setUrl(env.getProperty("db.url"));
-        dataSource.setUsername(env.getProperty("db.username"));
-        dataSource.setPassword(env.getProperty("db.password"));
+        dataSource.setDriverClassName(env.getRequiredProperty("db.driver"));
+        dataSource.setUrl(env.getRequiredProperty("db.url"));
+        dataSource.setUsername(env.getRequiredProperty("db.username"));
+        dataSource.setPassword(env.getRequiredProperty("db.password"));
         return dataSource;
     }
 
@@ -35,20 +36,29 @@ public class DBConfig {
     LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Environment env){
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
-        entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         entityManagerFactoryBean.setPackagesToScan("com.burtsev.model");
+        entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
         Properties jpaProperties = new Properties();
 
         jpaProperties.put("hibernate.dialect", env.getRequiredProperty("hibernate.dialect"));
-        jpaProperties.put("hibernate.hbm2ddl.auto", env.getRequiredProperty("hibernate.dialect"));
+        jpaProperties.put("hibernate.hbm2ddl.auto", env.getRequiredProperty("hibernate.hbm2ddl.auto"));
         jpaProperties.put("hibernate.show_sql", env.getRequiredProperty("hibernate.show_sql"));
-        jpaProperties.put("hibernate.ejb.naming_strategy", env.getRequiredProperty("hibernate.ejb.naming_strategy"));
+        jpaProperties.put("hibernate.temp.use_jdbc_metadata_defaults", env.getRequiredProperty("hibernate.temp.use_jdbc_metadata_defaults"));
         jpaProperties.put("hibernate.format_sql", env.getRequiredProperty("hibernate.format_sql"));
+        jpaProperties.put("hibernate.use_sql_comments", env.getRequiredProperty("hibernate.use_sql_comments"));
+//        jpaProperties.put("hibernate.ejb.naming_strategy", env.getRequiredProperty("hibernate.ejb.naming_strategy"));
+//        jpaProperties.put("hibernate.format_sql", env.getRequiredProperty("hibernate.format_sql"));
 
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
         return entityManagerFactoryBean;
     }
+
+//    @Bean
+//    public EntityManager entityManager(){
+//        EntityManager entityManager = entityManagerFactory(getDataSource()).getNativeEntityManagerFactory().createEntityManager();
+//        return  entityManager;
+//    }
 
     @Bean
     JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {

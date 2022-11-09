@@ -2,6 +2,7 @@ package com.burtsev.controller;
 
 import com.burtsev.dao.UsersDAO;
 import com.burtsev.model.User;
+import com.burtsev.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +14,16 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/users")
 public class UsersController {
-    private final UsersDAO usersService;
+    private final UserService usersService;
+
     @Autowired
-    public UsersController(UsersDAO usersDAO) {
-        this.usersService = usersDAO;
+    public UsersController(UserService usersService) {
+        this.usersService = usersService;
+    }
+
+    @GetMapping("/")
+    public String index(){
+        return "index";
     }
 
     @GetMapping()
