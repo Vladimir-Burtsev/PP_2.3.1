@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NotEmpty(message = "The field cannot be empty")
     @Size(min = 2, max = 20, message = "Name to short (2) or long (30)")

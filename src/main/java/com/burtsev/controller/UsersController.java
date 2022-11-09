@@ -21,11 +21,6 @@ public class UsersController {
         this.usersService = usersService;
     }
 
-    @GetMapping("/")
-    public String index(){
-        return "index";
-    }
-
     @GetMapping()
     public String showAllUsers(Model model){
         model.addAttribute("users", usersService.getAllUsers());
@@ -60,7 +55,7 @@ public class UsersController {
         if (bindingResult.hasErrors())
             return "users/edit";
 
-        usersService.update(id, user);
+        usersService.update(user);
         return "redirect:/users";
     }
     @DeleteMapping("/{id}")
