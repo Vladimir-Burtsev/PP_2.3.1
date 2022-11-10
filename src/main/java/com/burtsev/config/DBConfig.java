@@ -11,7 +11,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -48,18 +47,10 @@ public class DBConfig {
         jpaProperties.put("hibernate.temp.use_jdbc_metadata_defaults", env.getRequiredProperty("hibernate.temp.use_jdbc_metadata_defaults"));
         jpaProperties.put("hibernate.format_sql", env.getRequiredProperty("hibernate.format_sql"));
         jpaProperties.put("hibernate.use_sql_comments", env.getRequiredProperty("hibernate.use_sql_comments"));
-//        jpaProperties.put("hibernate.ejb.naming_strategy", env.getRequiredProperty("hibernate.ejb.naming_strategy"));
-//        jpaProperties.put("hibernate.format_sql", env.getRequiredProperty("hibernate.format_sql"));
 
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
         return entityManagerFactoryBean;
     }
-
-//    @Bean
-//    public EntityManager entityManager(){
-//        EntityManager entityManager = entityManagerFactory(getDataSource()).getNativeEntityManagerFactory().createEntityManager();
-//        return  entityManager;
-//    }
 
     @Bean
     JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
@@ -67,25 +58,4 @@ public class DBConfig {
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
     }
-//    @Bean
-//    public LocalSessionFactoryBean getSessionFactory(Environment env, DataSource dataSource) {
-//        LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
-//        factoryBean.setDataSource(dataSource);
-//
-//        Properties props=new Properties();
-//        props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-//        props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-//        props.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
-//
-//        factoryBean.setHibernateProperties(props);
-//        factoryBean.setAnnotatedClasses(User.class);
-//        return factoryBean;
-//    }
-
-//    @Bean
-//    public HibernateTransactionManager getTransactionManager(EntityManagerFactory entityManagerFactory) {
-//        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-//        transactionManager.setSessionFactory(sessionFactoryBean.getObject());
-//        return transactionManager;
-//    }
 }

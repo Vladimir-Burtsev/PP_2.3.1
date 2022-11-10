@@ -2,7 +2,6 @@ package com.burtsev.dao;
 
 import com.burtsev.model.User;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,7 +16,6 @@ public class UsersDAOImpl implements UsersDAO {
     }
 
     @Override
-    @Transactional
     public List<User> getAllUsers() {
         return em.createQuery("select u from User u", User.class).getResultList();
     }
@@ -26,7 +24,6 @@ public class UsersDAOImpl implements UsersDAO {
         return em.find(User.class, id);
     }
     @Override
-    @Transactional
     public void save(User user) {
         em.persist(user);
     }

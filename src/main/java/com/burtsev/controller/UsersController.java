@@ -1,6 +1,5 @@
 package com.burtsev.controller;
 
-import com.burtsev.dao.UsersDAO;
 import com.burtsev.model.User;
 import com.burtsev.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
